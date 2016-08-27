@@ -1,10 +1,6 @@
 @import '_globals';
 @import '_mixins';
 @import '_genericClasses';
-// @import '_icons';
-// @import '_navigation';
-
-
 
 // mine
 a:focus {
@@ -44,7 +40,6 @@ body {
   .mdl-navigation__link:hover{
     background-color: #EFEFEF;
   }
-
   .mdl-list__item--two-line{
     .mdl-list__item-primary-content{
       padding-top:1px;
@@ -53,16 +48,10 @@ body {
       background-color: #EFEFEF;
     }
   }
-
-  .active{
-    background-color: #e0e0e0;
-  }
-
   .mdl-list {
       margin-top: 0px;
       padding-top: 0px;
   }
-
   .mdl-list__item-sub-title{
     padding-top: 5px;
     width:170px;
@@ -77,6 +66,10 @@ body {
     .mdl-list__item-primary-content{
       padding-top:20px;
     }
+  }
+
+  .active{
+    background-color: #e0e0e0;
   }
 }
 
@@ -122,10 +115,6 @@ body {
   .mdl-textfield__input {
     width: 105%;
   }
-
-
-///////////////////////////
-
   .mdl-list {
       margin-top: 0px;
       padding-top: 0px;
@@ -135,7 +124,6 @@ body {
       width: 100%;
     }
   }
-
   .mdl-list__item-sub-title{
     padding-top: 5px;
     width:170px;
@@ -144,17 +132,12 @@ body {
     top: -18px;
     position: relative;
   }
-
   .addButton{
     background-color: $accent;
     .mdl-list__item-primary-content{
       padding-top:20px;
     }
   }
-
-///////////////////////////
-
-
 }
 .battle-card > .mdl-card__title > h4 {
   margin-top: 0;
@@ -167,8 +150,13 @@ body {
 
 .header > .mdl-card__title {
   height: 176px;
-  background:$accent2 url('src/img/chamberflow-trans.png') center / cover;
+  background:$accent2;
   width:100%;
+  .headerimg{
+    height: 176px;
+    position: relative;
+    left: -62px;
+  }
 }
 
 .footer {
@@ -204,7 +192,6 @@ body {
   }
 }
 
-
 @media screen and (max-width: 383px){
   .battle-card.mdl-card {
     .mdl-card__supporting-text {
@@ -217,5 +204,8 @@ body {
       width: 259px;
       margin-left: 0px;
     }
+  }
+  .header > .mdl-card__title .headerimg {
+    height: 149px;
   }
 }

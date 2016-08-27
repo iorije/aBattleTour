@@ -34,10 +34,6 @@ export class addBattle {
     };
 
     this.battle = battle;
-    // if(!this.dtp){
-    // }else{
-    //   this.dtp.setDate(this.battle.date);
-    // }
     this.originalBattle = JSON.parse(JSON.stringify(battle));
     this.ea.publish(new BattleViewed(this.battle));
   }
@@ -63,7 +59,6 @@ export class addBattle {
       }
     });
 
-    //this.dtp.setDate(this.battle.date);
     //register material-design-lite components
     componentHandler.upgradeDom();
   }
@@ -100,18 +95,8 @@ export class addBattle {
       if(!result){
         this.ea.publish(new BattleViewed(this.battle));
       }
-
       return result;
     }
-
     return true;
   }
-
 }
-
-
-
-
-
-
-

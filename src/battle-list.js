@@ -11,7 +11,6 @@ export class BattleList {
     this.api = api;
     this.battles = [];
 
-    // this.menuState = false;
     ea.subscribe(BattleViewed, msg => this.select(msg.battle));
     ea.subscribe(BattleUpdated, msg => {
       let id = msg.battle._id;
@@ -29,11 +28,6 @@ export class BattleList {
         this.battles = battles;
       });
     });
-  }
-
-  get menuState(){
-    // return MenuState;
-    // is-visible
   }
 
   attached(){
@@ -54,6 +48,14 @@ export class BattleList {
 
   select(battle){
     this.selectedId = battle._id;
+    
+    // maybe fix close crawer on select battle. this code below, does not work. it messes with mdl drawer state, dont know how to fix
+    
+    // let t = document.getElementsByClassName('mdl-layout__obfuscator')[0];
+    // let x = document.getElementsByClassName('mdl-layout__drawer')[0];
+    // x.className = x.classList.remove('is-visible');
+    // t.className = t.classList.remove('is-visible');
+    
     return true;
   }
 }

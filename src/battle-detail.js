@@ -26,6 +26,8 @@ export class BattleDetail {
 
     return this.api.getBattleDetails(params.id).then(battle => {
       this.battle = battle;
+      
+      // fix for datepickr
       if(!this.dtp){
       }else{
         this.dtp.setDate(this.battle.date);
@@ -47,15 +49,13 @@ export class BattleDetail {
         document.getElementById("date").value = a;
       }
     });
+    // fix for datepickr
     this.dtp.setDate(this.battle.date);
 
     //register material-design-lite components
     componentHandler.upgradeDom();
   }
 
-  deactivate(params, routeConfig) {
-    // MenuState = false;
-  }
 
   get editEnabled() {
     return Session.authorized;

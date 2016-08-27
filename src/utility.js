@@ -30,17 +30,15 @@ export function prepareBattle(battle){
 	// let battle.day;				get short day
 	// let battle.displayName;		fix for titles which are too long
 
-	// battle.location = battle.location.replace(/\\n/g, String.fromCharCode(13, 10) )
+  battle.daysTill = dater.daysTill(new Date(battle.date));
+  battle.day = dater.getShortDay(new Date(battle.date));
+  if(battle.name.length>22){
+    	battle.displayName = battle.name.substring(0, 22) + '...';
+  }else{
+  	battle.displayName = battle.name;
+  }
 
-    battle.daysTill = dater.daysTill(new Date(battle.date));
-    battle.day = dater.getShortDay(new Date(battle.date));
-    if(battle.name.length>22){
-      	battle.displayName = battle.name.substring(0, 22) + '...';
-    }else{
-    	battle.displayName = battle.name;
-    }
-
-    return battle;
+  return battle;
 }
 
 export function sortBattles(battles){
@@ -84,6 +82,5 @@ export function validRequest(battle, isRequesting, isStoring){
 	else if(battle.location == ""){
 		return false;
 	}
-	//fix types
 	return true;
 }

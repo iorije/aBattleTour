@@ -1,6 +1,3 @@
-
-
-
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {WebAPI} from './web-api';
 import {BattleUpdated, BattleViewed, BattleSaved} from './messages';
@@ -14,7 +11,6 @@ export class NoSelection {
     this.api = api;
     this.battles = [];
 
-    // this.menuState = false;
     ea.subscribe(BattleViewed, msg => this.select(msg.battle));
     ea.subscribe(BattleUpdated, msg => {
       let id = msg.battle._id;
@@ -34,12 +30,6 @@ export class NoSelection {
     });
   }
 
-
-  attached(){
-    //register material-design-lite components
-    componentHandler.upgradeElement(this.menu);
-  }
-
   created(){
     this.api.getBattles().then(battles => {
       // prepare each battle for display
@@ -50,7 +40,6 @@ export class NoSelection {
       this.battles = battles;
     });
   }
-
 
   select(battle){
     this.selectedId = battle._id;
