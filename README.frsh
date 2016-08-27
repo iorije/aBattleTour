@@ -1,7 +1,29 @@
-Dit is boilerplate
+This is app is meant for private use with a few friends and learning purposes.
+You can use this code for educational purposes as I've done so many times.
 
-SCSS vn frshnss, preprocessed by au
-Aurelia vn aurelia cli => au new
 
+This app is build using:
+Aurelia CLI( SCSS, ES6, and some other default settings ) + Material Design Lite
+
+Started from creating a new project with the CLI of Aurelia
+>> au new
+
+To run this project
 >> npm install
 >> au run --watch
+
+
+The "--watch" thingy makes the browser auto-refresh onMakingChangesToYourCode.
+This sugar comes with the Aurelia CLI project generator.
+
+
+
+// TODO
+refactor
+fix last few remaining issues
+
+
+
+When you do choose to use this for educational purposes, then note that I also build this to see how fast I could get something up and running with aurelia. Which is amazingly fast btw.
+
+This also means that I may not be leveraging all the strength Aurelia offers, just because of me not taking the time to read ALL documetation, off which I still dont understand what information the API Library offers me. Or I dont understand how to read it. Everything else is pretty clear ofcourse, as I managed to build this. Anyway, use with caution.
