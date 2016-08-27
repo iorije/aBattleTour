@@ -1,0 +1,58 @@
+<template>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer" ref="menu">
+    <div class="mdl-layout__drawer battle-list">
+      <span class="mdl-layout-title"><!-- Battles --></span>
+      <nav class="mdl-navigation">
+        <ul class="demo-list-two mdl-list">
+          <li class="mdl-list__item mdl-list__item--two-line ${battle._id === $parent.selectedId ? 'active' : ''}" repeat.for="battle of battles">
+            <a class="mdl-navigation__link" route-href="route: battles; params.bind: {id:battle._id}" click.delegate="$parent.select(battle)">
+              <span class="mdl-list__item-primary-content">
+                <span><b>${battle.displayName}</b></span>
+                <span class="mdl-list__item-sub-title">
+                  <span class="mdl-chip ${battle.types.v1 ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">1V1</span>
+                  </span>
+                  <span class="mdl-chip ${battle.types.v2 ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">2V2</span>
+                  </span>
+                  <span class="mdl-chip ${battle.types.v3 ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">3V3</span>
+                  </span>
+                  <span class="mdl-chip ${battle.types.v4 ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">4V4</span>
+                  </span>
+                  <span class="mdl-chip ${battle.types.vc ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">cruVcru</span>
+                  </span>
+                </span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                ${battle.daysTill}
+              </span>
+            </a>
+          </li>
+          <!-- add battle link -->
+  <!--         <li class="mdl-list__item mdl-list__item--two-line addButton">
+            <a class="mdl-navigation__link" route-href="route: battles/add;">
+              <span class="mdl-list__item-primary-content">
+                <span>add battle</span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <i class="material-icons">mode_add</i>
+              </span>
+            </a>
+          </li> -->
+        </ul>
+        <div class="mdl-card__actions mdl-card--border">
+          <div class="mdl-layout-spacer"></div>
+          <a route-href="route: battles/add;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin: 0px 0px 0px 128px;">
+            add <i class="material-icons">add</i>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</template>
+
+
+

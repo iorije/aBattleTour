@@ -1,0 +1,26 @@
+[
+	{
+		"id": "villa_basta",
+		"name": "Villa Basta",
+		"imgurl": "img/vb.jpg",
+		"imgalt": "Villa Basta",
+		"topspacing": "19px",
+		"url": "http://villabasta.be/"
+	},
+	{
+		"id": "rondpunt26",
+		"name": "Rondpunt26",
+		"imgurl": "img/rp26.jpg",
+		"imgalt": "Rondpunt26",
+		"topspacing": "43px",
+		"url": "http://www.jeugdingenk.be/"
+	},
+	{
+		"id": "jeugddienst_hasselt",
+		"name": "Jeugddienst Hasselt",
+		"imgurl": "img/hsslt.jpg",
+		"imgalt": "Jeugddienst Hasselt",
+		"topspacing": "69px",
+		"url": "http://www.jeugdhasselt.be/"
+	}
+]

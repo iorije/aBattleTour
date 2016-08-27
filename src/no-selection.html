@@ -1,0 +1,43 @@
+<template>
+  <div class="mdl-grid">
+    <div class="center-card battle-card mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title mdl-card--expand">
+		    <ul class="demo-list-two mdl-list">
+          <li class="mdl-list__item mdl-list__item--two-line ${battle._id === $parent.selectedId ? 'active' : ''}" repeat.for="battle of battles">
+            <a class="mdl-navigation__link" route-href="route: battles; params.bind: {id:battle._id}" click.delegate="$parent.select(battle)">
+              <span class="mdl-list__item-primary-content">
+                <span><b>${battle.displayName}</b></span>
+                <span class="mdl-list__item-sub-title">
+                  <span class="mdl-chip ${battle.types.v1 ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">1V1</span>
+                  </span>
+                  <span class="mdl-chip ${battle.types.v2 ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">2V2</span>
+                  </span>
+                  <span class="mdl-chip ${battle.types.v3 ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">3V3</span>
+                  </span>
+                  <span class="mdl-chip ${battle.types.v4 ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">4V4</span>
+                  </span>
+                  <span class="mdl-chip ${battle.types.vc ? '' : 'invisible' }">
+                      <span class="mdl-chip__text">cruVcru</span>
+                  </span>
+                </span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                ${battle.daysTill}
+              </span>
+            </a>
+          </li>
+        </ul>
+		  </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <div class="mdl-layout-spacer"></div>
+        <a route-href="route: battles/add;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          add <i class="material-icons">add</i>
+        </a>
+      </div>
+	  </div>
+	</div>
+ </template>

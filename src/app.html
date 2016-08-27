@@ -1,0 +1,21 @@
+<template>
+  <require from="normalize-css/normalize.css"></require>
+  <require from="material-design-lite/material.green-lime.min.css"></require>
+  <require from="flatpickr/flatpickr.min.css"></require>
+  <require from="./css/styler.css"></require>
+  <require from="./partials/header"></require>
+  <require from="./partials/footer"></require>
+  <require from="./battle-list"></require>
+  
+  <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
+
+  <div class="bodyContainer">
+    <div class="mdl-grid bodyContainer">
+      <battle-list class="mdl-cell navigation"></battle-list>
+      <header class="mdl-cell mdl-cell--12-col"></header>
+      <router-view class="mdl-cell mdl-cell--12-col"></router-view>
+      <footer class="mdl-cell mdl-cell--12-col"></footer>
+    </div>
+    <div id="container"></div>
+  </div>
+</template>

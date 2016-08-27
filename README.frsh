@@ -1,0 +1,7 @@
+Dit is boilerplate
+
+SCSS vn frshnss, preprocessed by au
+Aurelia vn aurelia cli => au new
+
+>> npm install
+>> au run --watch

@@ -1,0 +1,70 @@
+<template>
+  <div class="mdl-grid">
+    <div class="center-card battle-card mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__supporting-text">
+        <form>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="name">
+            <input class="mdl-textfield__input" type="text" id="name" value.bind="battle.name">
+            <label class="mdl-textfield__label" for="name">Name</label>
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="date" id="date-container">
+            <input class="mdl-textfield__input flatpickr" type="text" id="date" value.bind="battle.date">
+            <label class="mdl-textfield__label" for="date">Date</label>
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="location">
+            <textarea class="mdl-textfield__input" type="text" id="location" value.bind="battle.location" rows= "3"></textarea>
+            <label class="mdl-textfield__label" for="location">Location</label>
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="comment">
+            <textarea class="mdl-textfield__input" type="text" id="comment" value.bind="battle.comment" rows= "5"></textarea>
+            <label class="mdl-textfield__label" for="comment">Comment</label>
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="eventpage">
+            <input class="mdl-textfield__input" type="text" id="eventpage" value.bind="battle.eventpage">
+            <label class="mdl-textfield__label" for="eventpage">Eventpage</label>
+          </div>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.v1 ? 'is-checked' : '' }" ref="v1">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.v1" checked.bind="battle.types.v1">
+            <span class="mdl-checkbox__label">1V1</span>
+          </label>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.v2 ? 'is-checked' : '' }" ref="v2">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.v2" checked.bind="battle.types.v2">
+            <span class="mdl-checkbox__label">2V2</span>
+          </label>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.v3 ? 'is-checked' : '' }" ref="v3">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.v3" checked.bind="battle.types.v3">
+            <span class="mdl-checkbox__label">3V3</span>
+          </label>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.v4 ? 'is-checked' : '' }" ref="v4">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.v4" checked.bind="battle.types.v4">
+            <span class="mdl-checkbox__label">4V4</span>
+          </label>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.vc ? 'is-checked' : '' }" ref="vc">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.vc" checked.bind="battle.types.vc">
+            <span class="mdl-checkbox__label">cruVcru</span>
+          </label>
+
+          <div class="clear">&nbsp;</div>
+
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" click.delegate="save()" disabled.bind="!canSave" ref="btnsave">
+            Save
+          </button>
+        </form>
+
+        <!-- errorContainer -->
+        <div ref="errorContainer" class="mdl-js-snackbar mdl-snackbar">
+          <div class="mdl-snackbar__text"></div>
+          <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </div>

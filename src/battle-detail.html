@@ -1,0 +1,119 @@
+<template>
+  <require from="./resources/value-converters/normalize-date"></require>
+  <require from="./resources/value-converters/normalize-time"></require>
+
+  <div class="mdl-grid">
+    <div class="center-card battle-card mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title mdl-card--expand">
+        <h4>
+          ${battle.displayName}
+        </h4>
+      </div>
+      <div class="mdl-card__supporting-text fixPadding">
+        <h5 style="margin:0px;">
+          ${battle.day} ~ ${battle.date | normalizeDate} ~ ${battle.date | normalizeTime}
+        </h5>
+      </div>
+      <div class="mdl-card__supporting-text fixPadding">
+        <h6 style="margin:0px;white-space:pre-wrap;">${battle.location}</h6>
+      </div>
+      <div class="mdl-card__supporting-text fixPadding">
+        <span class="mdl-list__item-sub-title">
+          <span class="mdl-chip ${battle.types.v1 ? '' : 'invisible' }">
+              <span class="mdl-chip__text">1V1</span>
+          </span>
+          <span class="mdl-chip ${battle.types.v2 ? '' : 'invisible' }">
+              <span class="mdl-chip__text">2V2</span>
+          </span>
+          <span class="mdl-chip ${battle.types.v3 ? '' : 'invisible' }">
+              <span class="mdl-chip__text">3V3</span>
+          </span>
+          <span class="mdl-chip ${battle.types.v4 ? '' : 'invisible' }">
+              <span class="mdl-chip__text">4V4</span>
+          </span>
+          <span class="mdl-chip ${battle.types.vc ? '' : 'invisible' }">
+              <span class="mdl-chip__text">cruVcru</span>
+          </span>
+        </span>
+      </div>
+      <div class="mdl-card__supporting-text fixTopPadding" style="white-space:pre-wrap;">${battle.comment}</div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a href="${battle.eventpage}" target="_blank" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Event page <i class="material-icons">chevron_right</i>
+        </a>
+        <div class="mdl-layout-spacer"></div>
+        <a href="${battle.eventpage}" target="_blank" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" click.delegate="toggleEdit()" ref="edit">
+          Edit <i class="material-icons">mode_edit</i>
+        </a>
+      </div>
+
+<!-- /////////////////////////////////////////////////// -->
+
+      <div class="mdl-card__supporting-text edit ${editEnabled ? '' : 'invisible'}">
+        <form>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="name">
+            <input class="mdl-textfield__input" type="text" id="name" value.bind="battle.name">
+            <label class="mdl-textfield__label" for="name">Name</label>
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="date">
+            <input class="mdl-textfield__input flatpickr" type="text" id="date" value.bind="battle.date">
+            <label class="mdl-textfield__label" for="date">Date</label>
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="location">
+            <textarea class="mdl-textfield__input" type="text" id="location" value.bind="battle.location" rows= "3"></textarea>
+            <label class="mdl-textfield__label" for="location">Location</label>
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="comment">
+            <textarea class="mdl-textfield__input" type="text" id="comment" value.bind="battle.comment" rows= "5"></textarea>
+            <label class="mdl-textfield__label" for="comment">Comment</label>
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ref="eventpage">
+            <input class="mdl-textfield__input" type="text" id="eventpage" value.bind="battle.eventpage">
+            <label class="mdl-textfield__label" for="eventpage">Eventpage</label>
+          </div>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.v1 ? 'is-checked' : '' }" ref="v1">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.v1" checked.bind="battle.types.v1">
+            <span class="mdl-checkbox__label">1V1</span>
+          </label>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.v2 ? 'is-checked' : '' }" ref="v2">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.v2" checked.bind="battle.types.v2">
+            <span class="mdl-checkbox__label">2V2</span>
+          </label>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.v3 ? 'is-checked' : '' }" ref="v3">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.v3" checked.bind="battle.types.v3">
+            <span class="mdl-checkbox__label">3V3</span>
+          </label>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.v4 ? 'is-checked' : '' }" ref="v4">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.v4" checked.bind="battle.types.v4">
+            <span class="mdl-checkbox__label">4V4</span>
+          </label>
+
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${battle.types.vc ? 'is-checked' : '' }" ref="vc">
+            <input type="checkbox" id="" class="mdl-checkbox__input" model.bind="battle.types.vc" checked.bind="battle.types.vc">
+            <span class="mdl-checkbox__label">cruVcru</span>
+          </label>
+
+          <div class="clear">&nbsp;</div>
+
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" click.delegate="update()" disabled.bind="!canUpdate" ref="btnsave">
+            Update
+          </button>
+        </form>
+
+        <!-- errorContainer -->
+        <div ref="errorContainer" class="mdl-js-snackbar mdl-snackbar">
+          <div class="mdl-snackbar__text"></div>
+          <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+[
+	{
+		"linkName": "Home",
+		"url": "home"		
+	},
+	{
+		"linkName": "About",
+		"url": "about"		
+	},
+	{
+		"linkName": "Partners",
+		"url": "partners"
+	}
+]

@@ -1,0 +1,221 @@
+@import '_globals';
+@import '_mixins';
+@import '_genericClasses';
+// @import '_icons';
+// @import '_navigation';
+
+
+
+// mine
+a:focus {
+  outline: none;
+}
+
+body {
+  font-size: 16px;
+  line-height: 28px; // http://www.pearsonified.com/typography/
+  background-color: $light;
+}
+
+.bodyContainer{
+	padding:0px;
+	.navigation{
+		margin:0px;
+	}
+}
+
+// fixing theirs
+// navigation
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    width: 100%;
+    padding:0px;
+    color:$dark;
+ }
+
+ .mdl-layout__drawer>.mdl-layout__title, .mdl-layout__drawer>.mdl-layout-title {
+  height: 95px;
+  background:$accent2 url('src/img/chamberflow-trans.png') center / cover;
+  background-color: $accent2;
+  padding-left: 20px;
+ }
+
+.mdl-layout__drawer .mdl-navigation {
+  padding-top: 0px; 
+  .mdl-navigation__link:hover{
+    background-color: #EFEFEF;
+  }
+
+  .mdl-list__item--two-line{
+    .mdl-list__item-primary-content{
+      padding-top:1px;
+    }
+    &:hover{
+      background-color: #EFEFEF;
+    }
+  }
+
+  .active{
+    background-color: #e0e0e0;
+  }
+
+  .mdl-list {
+      margin-top: 0px;
+      padding-top: 0px;
+  }
+
+  .mdl-list__item-sub-title{
+    padding-top: 5px;
+    width:170px;
+  }
+  .mdl-list__item-secondary-content{
+    top: -18px;
+    position: relative;
+  }
+
+  .addButton{
+    background-color: $accent;
+    .mdl-list__item-primary-content{
+      padding-top:20px;
+    }
+  }
+}
+
+
+
+// snackbar
+.mdl-snackbar--active{
+  position: relative;
+  margin-top: 18px;
+  width: 315px;
+  margin-left: -18px;
+}
+
+// chip
+.mdl-chip {
+  height: 21px;
+  line-height: 20px;
+  padding: 0px 6px;
+  margin: 8px 0px;
+  background-color: $accent;
+  color:$light;
+  .mdl-chip__text {
+    font-size: 11px;
+    padding-top:1px;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+  &:active {
+    background-color: $accent;
+  }
+}
+
+// cards
+.battle-card.mdl-card {
+  background-color: #EFEFEF;
+  .edit{
+    background-color: #fffff5;
+  }
+  .mdl-card__supporting-text {
+    width: 100%;
+  }
+  .mdl-textfield__input {
+    width: 105%;
+  }
+
+
+///////////////////////////
+
+  .mdl-list {
+      margin-top: 0px;
+      padding-top: 0px;
+      margin-bottom: 0px;
+      width: 100%;
+      .mdl-navigation__link {
+      width: 100%;
+    }
+  }
+
+  .mdl-list__item-sub-title{
+    padding-top: 5px;
+    width:170px;
+  }
+  .mdl-list__item-secondary-content{
+    top: -18px;
+    position: relative;
+  }
+
+  .addButton{
+    background-color: $accent;
+    .mdl-list__item-primary-content{
+      padding-top:20px;
+    }
+  }
+
+///////////////////////////
+
+
+}
+.battle-card > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+.battle-card > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+
+.header > .mdl-card__title {
+  height: 176px;
+  background:$accent2 url('src/img/chamberflow-trans.png') center / cover;
+  width:100%;
+}
+
+.footer {
+  background:$accent;
+  .mdl-card__supporting-text{
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+.center-card.mdl-card {
+  width: 350px;
+  margin-left:260px;
+  min-height: 50px;
+  .fixPadding{
+    padding-top:5px;
+    padding-bottom:5px;
+  }
+  .fixTopPadding{
+    padding-top:5px;
+  }
+}
+
+// checkbox
+.mdl-checkbox {
+  width: 32%;
+}
+
+// responsive shit
+@media screen and (max-width: 1024px){
+  .center-card.mdl-card {
+      margin-left:0px;
+  }
+}
+
+
+@media screen and (max-width: 383px){
+  .battle-card.mdl-card {
+    .mdl-card__supporting-text {
+      width: 90%;
+    }
+    .mdl-textfield__input {
+      width: 100%;
+    }
+    .mdl-snackbar--active{
+      width: 259px;
+      margin-left: 0px;
+    }
+  }
+}

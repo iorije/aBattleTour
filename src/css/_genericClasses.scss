@@ -1,0 +1,56 @@
+.divider{
+	background-color: $dark;
+	height: 10px;
+	width: 100%;
+}
+
+.divider-inv{
+	background-color: $light;
+	height: 10px;
+	width: 100%;
+}
+
+.small-divider{
+	background-color: $dark;
+	height: 5px;
+	width: 100%;
+}
+
+.small-divider-inv{
+	background-color: $light;
+	height: 5px;
+	width: 100%;
+}
+
+.visible{
+	display:block;
+}
+
+.invisible{
+	display:none;
+}
+
+.imgMaxWidth{
+	width:100%;
+}
+
+// .frsh-bullet{
+// 	float: left;
+// 	width: 33px;
+// 	padding-top: 4px;
+// 	margin-right: 4px;
+// 	z-index: -1;
+// 	border: none;
+// 	display: block;
+// }
+
+// .imgMaxWidth{
+// 	width: $containerWidth;
+// 	@include break('flow'){
+// 		width:100%;
+// 	}
+// }
+
+.clear{
+	clear:both;
+}
